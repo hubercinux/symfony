@@ -1,0 +1,44 @@
+
+{#% extends 'MiwebBundle::layout.html.twig' %#} {# Se decomenta para que funcione el popup #}
+{# ------------------------------Menu----------------------------------- #}
+{% block nav %}
+ 
+{% endblock %}
+{# -------------------------------Slider---------------------------------- #}
+
+{% block slider %}
+{% endblock %}
+
+{# -------------------------------Span---------------------------------- #}
+
+{% block span %}
+{% endblock %}
+
+{# -------------------------------Sidebar---------------------------------- #}
+{% block sidebar %}
+{% block item %}
+{% endblock %}
+{% endblock %}
+{# -----------------------------------Body--------------------------------- #}
+
+{% block body %}
+	<div class="span9">
+
+		<p>
+		  <a href=" {{ path('categoria_listar') }} "><button class="btn btn-danger" type="button">Descartar</button></a>
+		</p>
+
+		<form novalidate action="{{ path('categoria_nuevo') }}" method="post" {{ form_enctype(form) }} >
+			{{ form_rest(form) }}
+
+
+ 		<input type="submit" value="Guardar" > <a href=" {{ path('categoria_listar') }} "><button class="btn btn-danger" type="button">Cancelar</button></a>
+		</form>
+
+	</div>
+{% endblock %}
+
+{# ------------------------------footer----------------------------------- #}
+
+{% block footer %}
+{% endblock %}

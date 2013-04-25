@@ -1,0 +1,71 @@
+
+{% extends 'MiwebBundle::layout.html.twig' %}
+{# ------------------------------Menu----------------------------------- #}
+{% block nav %}
+	{{ parent() }}
+{% endblock %}
+{# -------------------------------Slider---------------------------------- #}
+
+{% block slider %}
+{% endblock %}
+
+{# -------------------------------Span---------------------------------- #}
+
+{% block span %}
+{% endblock %}
+
+{# -------------------------------Sidebar---------------------------------- #}
+
+{% block item %}
+	{{ parent() }}
+		<li class="active"><a href="{{ path('categoria_listar')}}">Categorías</a></li>
+        <li><a href="{{ path('producto_listar')}}">Listar Productos</a></li>    
+{% endblock %}
+
+{# -----------------------------------Body--------------------------------- #}
+
+{% block body %}
+	<div class="span9">
+
+		<H3>Categorias</H3>
+		<p>
+		  <a href=" {{ path('categoria_listar') }} "><button class="btn btn-danger" type="button">Descartar</button></a>
+		</p>
+
+		<form  novalidate action="{{ path('categoria_editar', { 'id': categoria.id }) }}" method="post" {{ form_enctype(form) }} >
+			{{ form_errors(form) }}
+			<div>
+			    {{ form_label(form.nombre) }}
+			    {{ form_errors(form.nombre) }}
+			    {{ form_widget(form.nombre) }}
+			</div>
+
+			<div>
+				{% if categoria.path %}
+				 <img src="{{ asset(['uploads/img_categoria/', categoria.path]|join ) }}" title="{{categoria.path}}" alt="{{ categoria.nombre }} image not found">
+				{% endif %}
+			    {{ form_label(form.file) }}
+			    {{ form_errors(form.file) }}
+			    {{ form_widget(form.file) }}
+			</div>
+
+			<div>
+			    {{ form_label(form.fecha) }}
+			    {{ form_errors(form.fecha) }}
+			    {{ form_widget(form.fecha) }}
+			    {#{ form_widget(form.fecha, { 'attr': {'id': 'f_rangeStart'} }) }#}
+			     
+			</div>
+			{{ form_rest(form) }}
+
+ 		<input type="submit"  >
+		</form>
+
+	</div>
+{% endblock %}
+
+{# ------------------------------footer----------------------------------- #}
+
+{% block footer %}
+	{{ parent() }}
+{% endblock %}

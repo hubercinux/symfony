@@ -1,0 +1,64 @@
+
+{% extends 'MiwebBundle::layout.html.twig' %}
+{# ------------------------------Menu----------------------------------- #}
+{% block nav %}
+	{{ parent() }}
+{% endblock %}
+{# -------------------------------Slider---------------------------------- #}
+
+{% block slider %}
+{% endblock %}
+
+{# -------------------------------Span---------------------------------- #}
+
+{% block span %}
+{% endblock %}
+
+{# -------------------------------Sidebar---------------------------------- #}
+
+{% block item %}
+	{{ parent() }}
+	  	<li><a href="{{ path('categoria_listar')}}">Categorías</a></li>
+        <li  class="active"><a href="{{ path('producto_listar')}}">Listar Productos</a></li> 
+{% endblock %}
+
+{# -----------------------------------Body--------------------------------- #}
+
+{% block body %}
+	<div class="span9">
+
+		<H3>Productos</H3>
+		<p><!-- inicio de botones de crear -->
+		  <a href=" {{ path('producto_nuevo')}} "><button class="btn btn-primary" type="button">Crear</button></a>
+		</p>
+		<table class="table table-striped">
+			<thead>
+			<tr>
+				<th>#</th>
+				<th>Nombre de Producto</th>
+				<th>Precio</th>
+				<th>Descripción</th>
+				<!-- <th>Categoría</th> -->
+			</tr>
+			</thead>
+			<tbody>
+			{% for producto in productos %}
+			<tr>
+				<td><a href="{{ path('producto_showdetalles', { 'id': producto.id }) }}"> {{ producto.id }} </a></td>
+				<td><a href="{{ path('producto_showdetalles', { 'id': producto.id }) }}">{{ producto.nombre }}</a></td>
+				<td><a href="{{ path('producto_showdetalles', { 'id': producto.id }) }}">{{ producto.precio }}</a></td>
+				<td><a href="{{ path('producto_showdetalles', { 'id': producto.id }) }}">{{ producto.descripcion }}</a></td>
+		<!--		<td><a href="{#{ path('producto_showdetalles', { 'id': producto.id }) }#}">{{ producto.categoria }}</a></td>
+	-->
+			</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}
+
+{# ------------------------------footer----------------------------------- #}
+
+{% block footer %}
+	{{ parent() }}
+{% endblock %}

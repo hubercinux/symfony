@@ -1,0 +1,123 @@
+
+{% extends 'MiwebBundle::layout.html.twig' %}
+
+{# para jscal pero no funciono #}
+{% block stylesheets %}
+		{{ parent() }}
+		<link rel="stylesheet" type="text/css" href="{{ asset('bundles/miweb/css/csscal/jscal2.css') }} " />
+		<link rel="stylesheet" type="text/css" href="{{ asset('bundles/miweb/css/csscal/border-radius.css') }}" />
+		<link rel="stylesheet" type="text/css" href="{{ asset('bundles/miweb/css/csscal/gold/gold.css') }}" />
+{% endblock %}
+
+{% block javascripts %}
+		{{ parent() }}
+		<script type="text/javascript" src="{{ asset('bundles/miweb/js/jscal/jscal2.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('bundles/miweb/js/jscal/lang/es.js') }}"></script>
+
+{% endblock %}
+{# fin para jscal pero no funciono #}
+
+{# ------------------------------Calendario----------------------------------- #}
+
+{% block calendario %}
+	
+
+{% endblock %}
+
+
+
+{# ------------------------------Menu----------------------------------- #}
+{% block nav %}
+	{{ parent() }}
+{% endblock %}
+{# -------------------------------Slider---------------------------------- #}
+
+{% block slider %}
+{% endblock %}
+
+{# -------------------------------Span---------------------------------- #}
+
+{% block span %}
+{% endblock %}
+
+{# -------------------------------Sidebar---------------------------------- #}
+
+{% block item %}
+	{{ parent() }}
+		<li class="active"><a href="{{ path('categoria_listar')}}">Categorías</a></li>
+        <li><a href="{{ path('producto_listar')}}">Listar Productos</a></li>    
+{% endblock %}
+
+{# -----------------------------------Body--------------------------------- #}
+
+{% block body %}
+	<div class="span9">
+
+		<H3>Nueva categoria</H3>
+		<p>
+		  <a href=" {{ path('categoria_listar') }} "><button class="btn btn-danger" type="button">Descartar</button></a>
+		</p>
+
+		<form novalidate action="{{ path('categoria_nuevo') }}" method="post" {{ form_enctype(form) }}>
+			
+
+			{{ form_errors(form) }}
+
+ 			<div>
+			    {{ form_label(form.nombre) }}
+			    {{ form_errors(form.nombre) }}
+			    {{ form_widget(form.nombre) }}
+			</div>
+
+			<div>
+			    {{ form_label(form.file) }}
+			    {{ form_errors(form.file) }}
+			    {{ form_widget(form.file) }}
+			</div>
+
+			<div>
+			    {{ form_label(form.fecha) }}
+			    {{ form_errors(form.fecha) }}
+			    {{ form_widget(form.fecha) }}
+			    {#{ form_widget(form.fecha, { 'attr': {'id': 'f_rangeStart'} }) }#}
+			     
+			</div>
+
+			{{ form_rest(form) }}
+ 			<input type="submit"  value="Guardar"> 
+		</form>
+
+<!--
+		<label for="f_rangeStart">Campo Fecha:</label> 
+             <input size="15" id="f_rangeStart" />
+                <button id="f_rangeStart_trigger">...</button>
+			<button id="f_clearRangeStart" onclick="clearRangeStart()">Limpiar</button>
+
+						 <script type="text/javascript">
+                  		  RANGE_CAL_1 = new Calendar({
+                          inputField: "f_rangeStart",
+                          dateFormat: "%B %d, %Y",
+                          trigger: "f_rangeStart_trigger",
+                          bottomBar: false,
+                          onSelect: function() {
+                                  var date = Calendar.intToDate(this.selection.get());
+                                  this.hide();
+                          }
+                  });
+                  function clearRangeStart() {
+                          document.getElementById("f_rangeStart").value = "";
+
+                  };
+                </script>
+
+-->
+	</div>
+
+
+{% endblock %}
+
+{# ------------------------------footer----------------------------------- #}
+
+{% block footer %}
+	{{ parent() }}
+{% endblock %}

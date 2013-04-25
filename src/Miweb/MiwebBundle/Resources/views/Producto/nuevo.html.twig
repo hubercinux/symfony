@@ -1,0 +1,45 @@
+
+{% extends 'MiwebBundle::layout.html.twig' %}
+{# ------------------------------Menu----------------------------------- #}
+{% block nav %}
+	{{ parent() }}
+{% endblock %}
+{# -------------------------------Slider---------------------------------- #}
+
+{% block slider %}
+{% endblock %}
+
+{# -------------------------------Span---------------------------------- #}
+
+{% block span %}
+{% endblock %}
+
+{# -------------------------------Sidebar---------------------------------- #}
+
+{% block item %}
+	{{ parent() }}
+	  	<li><a href="{{ path('categoria_listar')}}">Categorías</a></li>
+        <li  class="active"><a href="{{ path('producto_listar')}}">Listar Productos</a></li> 
+{% endblock %}
+
+{# -----------------------------------Body--------------------------------- #}
+
+{% block body %}
+	<div class="span9">
+			<H3>Nuevo producto</H3>
+		<p>
+		  <a href=" {{ path('producto_listar') }} "><button class="btn btn-danger" type="button">Descartar</button></a>
+		</p>
+
+		<form action=" {{ path('producto_nuevo') }} " method="post">
+		{{ form_rest(form) }}
+		<input type="submit" value="Guardar producto">
+		</form>
+	</div>
+{% endblock %}
+
+{# ------------------------------footer----------------------------------- #}
+
+{% block footer %}
+	{{ parent() }}
+{% endblock %}

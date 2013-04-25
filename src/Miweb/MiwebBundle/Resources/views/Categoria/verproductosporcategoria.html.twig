@@ -1,0 +1,58 @@
+
+{% extends 'MiwebBundle::layout.html.twig' %}
+{# ------------------------------Menu----------------------------------- #}
+{% block nav %}
+	{{ parent() }}
+{% endblock %}
+{# -------------------------------Slider---------------------------------- #}
+
+{% block slider %}
+{% endblock %}
+
+{# -------------------------------Span---------------------------------- #}
+
+{% block span %}
+{% endblock %}
+
+{# -------------------------------Sidebar---------------------------------- #}
+
+{% block item %}
+	{{ parent() }}
+		<li class="active"><a href="{{ path('categoria_listar')}}">Categorías</a></li>
+        <li><a href="{{ path('producto_listar')}}">Listar Productos</a></li>    
+{% endblock %}
+
+{# -----------------------------------Body--------------------------------- #}
+
+{% block body %}
+	<div class="span9">
+
+		<H3>Lista de prodcutos en la categoría {{ categoria.nombre | upper }}: </H3>
+		<table class="table table-striped">
+			<thead>
+			<tr>
+				<th>#</th>
+				<th>Nombre de Producto</th>
+				<th>Precio</th>
+				<th>Descripcion</th>
+			</tr>
+			</thead>
+			<tbody>
+			{% for producto in categoria.producto %}
+				<tr>
+					<td> <a href="{{ path('producto_showdetalles', {'id':producto.id }) }}"> {{ producto.id }}</a> </td>
+					<td> <a href="{{ path('producto_showdetalles', {'id':producto.id }) }}"> {{ producto.nombre }} </a> </td>
+					<td> <a href="{{ path('producto_showdetalles', {'id':producto.id }) }}"> {{ producto.precio }} </a> </td>
+					<td><a href="{{ path('producto_showdetalles', {'id':producto.id }) }}"> {{ producto.descripcion }} </a> </td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}
+
+{# ------------------------------footer----------------------------------- #}
+
+{% block footer %}
+	{{ parent() }}
+{% endblock %}

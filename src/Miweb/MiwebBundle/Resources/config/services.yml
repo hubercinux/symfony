@@ -1,0 +1,7 @@
+parameters:
+#    miweb.example.class: Miweb\MiwebBundle\Example
+
+services:
+#    miweb.example:
+#        class: %miweb.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

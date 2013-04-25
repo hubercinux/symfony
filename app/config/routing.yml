@@ -1,0 +1,8 @@
+#prueba:
+#    resource: "@PruebaBundle/Resources/config/routing.yml"
+#    prefix:   /prueba
+
+miweb:
+    resource: "@MiwebBundle/Resources/config/routing.yml"
+    prefix:   /
+

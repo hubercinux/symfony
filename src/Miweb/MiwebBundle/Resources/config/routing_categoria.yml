@@ -1,0 +1,32 @@
+
+categoria_listar:
+    pattern:  /vertodo
+    defaults: { _controller: MiwebBundle:Categoria:vercategorias }
+
+categoria_verproductos:
+    pattern:  /{id}/mostrarproductos
+    defaults: { _controller: MiwebBundle:Categoria:verproductosporcategoria }
+
+categoria_eliminar:
+    pattern:  /delete/{id}
+    defaults: { _controller: MiwebBundle:Categoria:delete }
+
+categoria_nuevo:
+    pattern:  /nuevo
+    defaults: { _controller: MiwebBundle:Categoria:nuevo }
+
+categoria_nuevopopup:
+    pattern:  /nuevopopup
+    defaults: { _controller: MiwebBundle:Categoria:nuevopopup }
+
+categoria_showdetalles:
+    pattern:  /showdetalles/{id}
+    defaults: { _controller: MiwebBundle:Categoria:showdetalles }
+
+categoria_editar:
+    pattern:  /{id}/editar
+    defaults: { _controller: MiwebBundle:Categoria:editar }
+
+categoria_orderbyname:
+    pattern:  /orderbyname
+    defaults: { _controller: MiwebBundle:Categoria:orderbyname }

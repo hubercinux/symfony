@@ -1,0 +1,11 @@
+prueba_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: PruebaBundle:Default:index }
+
+PruebaBundle_categoria:
+        resource: "@PruebaBundle/Resources/config/routing/categoria.yml"
+        prefix:   /categoria
+
+PruebaBundle_producto:
+        resource: "@PruebaBundle/Resources/config/routing/producto.yml"
+        prefix:   /producto

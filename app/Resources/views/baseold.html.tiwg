@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>{% block title %}Usando Bootstrap{% endblock %}</title>
+
+        {% block stylesheets %}
+          <link href="{{ asset('bundles/miweb/css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
+          {# es necesario que bootstrap.css se coloque primero y luego bootstrap-responsive.css #}
+          <link href="{{ asset('bundles/miweb/css/bootstrap-responsive.css') }}" type="text/css" rel="stylesheet" />
+            <style type="text/css">
+                  body {
+                        padding-top: 60px;
+                        padding-bottom: 40px;
+                      }
+                    .featurette-divider {
+                      margin: 20px 0; /* Space out the Bootstrap <hr> more */
+                    }
+                    .featurette {
+                      padding-top: 120px; /* Vertically center images part 1: add padding above and below text. */
+                      overflow: hidden; /* Vertically center images part 2: clear their floats. */
+                    }
+                    .featurette-image {
+                      margin-top: -120px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
+                    }
+
+                    /* Give some space on the sides of the floated elements so text doesn't run right into it. */
+                    .featurette-image.pull-left {
+                      margin-right: 40px;
+                    }
+                    .featurette-image.pull-right {
+                      margin-left: 40px;
+                    }
+
+                    /* Thin out the marketing headings */
+                    .featurette-heading {
+                      font-size: 50px;
+                      font-weight: 300;
+                      line-height: 1;
+                      letter-spacing: -1px;
+                    }
+            </style>
+        {% endblock %}
+
+        {% block javascripts %}
+            <script src="{{ asset('bundles/miweb/js/bootstrap.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/miweb/js/jquery.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/miweb/js/bootstrap-dropdown.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/miweb/js/bootstrap-button.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/miweb/js/bootstrap-carousel.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/miweb/js/bootstrap-alert.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/miweb/js/bootstrap-modal.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/miweb/js/bootstrap-popover.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/miweb/js/bootstrap-scrollspy.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/miweb/js/bootstrap-tab.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/miweb/js/bootstrap-tooltip.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/miweb/js/bootstrap-transition.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/miweb/js/bootstrap-typeahead.js') }}" type="text/javascript"></script>
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+
+  <body>
+
+
+    {% block nav %}
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="brand" href="#">Project name</a>
+                    <div class="nav-collapse collapse">
+                          <ul class="nav">
+                              <li class="active"><a href="{{ path('miweb_homepage') }}"><i class="icon-home icon-white"></i>Home</a></li>
+                              <li><a href="#about">About</a></li>
+                              <li><a href="#contact">Contact</a></li>
+                              <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                  <li><a href="#">Action</a></li>
+                                  <li><a href="#">Another action</a></li>
+                                  <li><a href="#">Something else here</a></li>
+                                  <li class="divider"></li>
+                                  <li class="nav-header">Nav header</li>
+                                  <li><a href="#">Separated link</a></li>
+                                  <li><a href="#">One more separated link</a></li>
+                                </ul>
+                              </li>
+                            </ul>
+                            <form class="navbar-form pull-right">
+                              <input class="span2" type="text" placeholder="Email">
+                              <input class="span2" type="password" placeholder="Password">
+                              <button type="submit" class="btn">Sign in</button>
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+
+
+    {% block slider %}
+          <div class="container">
+               <!-- Main hero unit for a primary marketing message or call to action -->              
+                  <div class="hero-unit">         
+                      <h1>Hello, world!</h1>
+                      <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
+                      </p>
+                      <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+                  </div>
+          </div>
+    {% endblock %}
+
+
+
+    {% block span %}
+        <div class="container">  
+          <!-- Example row of columns -->
+            <div class="row">
+                <div class="span4">
+                      <h2>Heading</h2>
+                      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                      <p><a class="btn" href="#">View details &raquo;</a></p>
+                </div>
+
+                <div class="span4">
+                      <h2>Heading</h2>
+                      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                      <p><a class="btn" href="#">View details &raquo;</a></p>
+                </div>
+
+                <div class="span4">
+                      <h2>Heading</h2>
+                      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                      <p><a class="btn" href="#">View details &raquo;</a></p>
+                </div>
+            </div>
+            <hr class="featurette-divider">
+        </div>
+    {% endblock %}       
+
+
+
+        <div class="container">
+            <div class="row-fluid">
+                
+                {% block sidebar %}
+                <div class="span3">
+                  <div class="well sidebar-nav">
+                     <ul class="nav nav-list">
+                       <!--Sidebar content-->
+                      <li class="nav-header">Sidebar</li>
+                      <li class="active"><a href="#">Link</a></li>
+                      <li><a href="#">Link</a></li>
+                      <li><a href="#">Link</a></li>
+                      <li><a href="#">Link</a></li>
+                      <li class="nav-header">Sidebar</li>
+                      <li><a href="#">Link</a></li>
+                      <li><a href="#">Link</a></li>
+                      <li><a href="#">Link</a></li>
+                      <li><a href="#">Link</a></li>
+                      <li><a href="#">Link</a></li>
+                      <li><a href="#">Link</a></li>
+                      <li class="nav-header">Sidebar</li>
+                      <li><a href="#">Link</a></li>
+                      <li><a href="#">Link</a></li>
+                      <li><a href="#">Link</a></li>
+                     </ul>               
+                  </div>
+                </div>
+                {% endblock %}
+
+                <!--Body content-->
+                {% block body %}
+                  <div class="span9">
+                    <hr class="featurette-divider">
+
+                        <div class="featurette">
+                         <img class="featurette-image pull-right" src="{{ asset('bundles/miweb/images/browser-icon-firefox.png') }}">
+                            <h2 class="featurette-heading">And lastly, this one. <span class="muted">Checkmate.</span></h2>
+                            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                        </div>
+
+                        <hr class="featurette-divider">
+
+
+                        <div class="featurette">
+                         <img class="featurette-image pull-right" src="{{ asset('bundles/miweb/images/browser-icon-firefox.png') }}">
+                            <h2 class="featurette-heading">And lastly, this one. <span class="muted">Checkmate.</span></h2>
+                            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                        </div>
+
+
+                        <hr class="featurette-divider">
+                  </div>
+                {% endblock %}
+                <!--End Body content-->
+            </div>
+        </div>
+
+        {% block footer %}
+          <div class="container">
+                <footer>
+                   <hr>
+                  <p>&copy; Company 2013</p>               
+                </footer>
+          </div>    
+        {% endblock %}   
+           
+    </body>
+</html>

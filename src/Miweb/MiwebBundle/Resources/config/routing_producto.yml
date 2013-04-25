@@ -1,0 +1,24 @@
+
+producto_listar:
+    pattern:  /
+    defaults: { _controller: MiwebBundle:Producto:verproductos }
+
+producto_buscar:
+    pattern:  /buscar/{name}
+    defaults: { _controller: MiwebBundle:Producto:buscar }
+
+producto_eliminar:
+    pattern:  /{id}/delete
+    defaults: { _controller: MiwebBundle:Producto:delete }
+
+producto_nuevo:
+    pattern:  /nuevo
+    defaults: { _controller: MiwebBundle:Producto:nuevo }
+
+producto_editar:
+    pattern:  /{id}/editar
+    defaults: { _controller: MiwebBundle:Producto:editar }
+
+producto_showdetalles:
+    pattern:  /{id}/detalles
+    defaults: { _controller: MiwebBundle:Producto:showdetalles }

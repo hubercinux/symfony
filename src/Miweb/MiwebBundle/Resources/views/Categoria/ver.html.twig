@@ -1,0 +1,152 @@
+
+{% extends 'MiwebBundle::layout.html.twig' %}
+
+
+
+
+{# ------------------------------Menu----------------------------------- #}
+{% block nav %}
+	{{ parent() }}
+{% endblock %}
+{# -------------------------------Slider---------------------------------- #}
+
+{% block slider %}
+{% endblock %}
+
+{# -------------------------------Span---------------------------------- #}
+
+{% block span %}
+{% endblock %}
+
+{# -------------------------------Sidebar---------------------------------- #}
+
+{% block item %}
+	{{ parent() }}
+		<li class="active"><a href="{{ path('categoria_listar')}}">Categorías</a></li>
+        <li><a href="{{ path('producto_listar')}}">Listar Productos</a></li>    
+{% endblock %}
+
+{# -----------------------------------Body--------------------------------- #}
+
+{% block body %}
+{# 
+	<div class="span9">
+
+		<H3>Categorias</H3>
+		<p>
+		  <a href=" {{ path('categoria_nuevo')}} "><button class="btn btn-primary" type="button">Crear</button></a>
+		</p>
+		<table class="table table-striped">
+			<thead>
+			<tr>
+				<th>#</th>
+				<th>Nombre de Categoria</th>
+				<th>Ver productos</th>
+				<th>Fecha</th>
+				<th>Acciones</th>
+			</tr>
+			</thead>
+			<tbody> 
+			{% for categoria in categorias %}
+			<tr>
+				<td> {{ categoria.id }}</td>
+				<td> {{ categoria.nombre }}  </td>
+				<td> {{ categoria.fecha | date('d/m/Y') }}  </td>
+				<td> <a href="{{ path('categoria_verproductos', { 'id': categoria.id }) }}"><i class="icon-ok"></i> Ver prodcutos </a></td> 
+
+				<td> <a href="{{ path('categoria_editar', { 'id': categoria.id }) }}">
+					<button class="btn btn-success" type="button"> Editar </button>
+				 </a>
+				 <a href="{{ path('categoria_eliminar', { 'id': categoria.id }) }}">
+					<button class="btn btn-danger" type="button"> Eliminar </button>
+				 </a> 
+				</td> 
+
+			</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+#}
+
+<div class="span9"> {# De aqui hacia abajo es con paginacion pero lo de arriba funcina#}
+
+		<H3>Categorias</H3>
+		<p><!-- inicio de botones de crear -->
+		  <a href=" {{ path('categoria_nuevo')}} "><button class="btn btn-primary" type="button">Crear</button></a>
+		  
+		  <!-- Button to trigger modal -->
+			<!-- <a href="#myModal" role="button" class="btn" data-toggle="modal">Crear via popup</a> -->
+			<button class="btn btn-primary" type="button" data-toggle="modal" data-target="#myModal">Crear via popup</button>
+			<!-- Modal  -->
+				<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				  <div class="modal-header">
+				    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				    <h3 id="myModalLabel"> Nueva Categoría</h3>
+				  </div>
+				  <div class="modal-body">
+				    <p>{#{ include('MiwebBundle:Categoria:nuevopo.html.twig') }#}
+				    	{#{ render(controller('MiwebBundle:Categoria:nuevo', { 'max': 3 })) }#}
+				    	{{ render(controller('MiwebBundle:Categoria:nuevopopup')) }}
+				    </p>
+				  </div>
+				  <!--
+				  <div class="modal-footer">
+				    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+				    <button class="btn btn-primary">Save changes</button>
+				  </div>
+				  	-->
+				</div>
+				 <!-- FIN  Button to trigger modal -->
+		</p> <!-- fin de botones de crear -->
+
+
+		<table class="table table-striped">
+			<thead>
+			<tr>
+				<th>#</th>
+				<th><a href=" {{ path('categoria_orderbyname') }} ">Nombre de Categoria</a></th>
+				<th>Fecha</th>
+				<th>Ver productos</th>
+				<th>Acciones</th>
+			</tr>
+			</thead>
+			<tbody> 
+			{% for categoria in pagination %}
+			<tr>
+				<td> {{ categoria.id }}</td>
+				<td> {{ categoria.nombre }}  </td>
+				<td> {{ categoria.fecha | date('d/m/Y') }}  </td>
+				<td> <a href="{{ path('categoria_verproductos', { 'id': categoria.id }) }}"><i class="icon-ok"></i> Ver prodcutos </a></td> 
+
+				<td> 
+					<a href="{{ path('categoria_editar', { 'id': categoria.id }) }}">
+					<button class="btn btn-success" type="button"> Editar </button>
+					</a>
+				 
+				 <a href="{{ path('categoria_showdetalles', { 'id': categoria.id }) }}">
+					<button class="btn btn-danger" type="button"> Mas ... </button>
+				 </a> 
+
+				</td> 
+
+			</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+
+		<div class="pagination pagination-centered">
+
+    		{{ knp_pagination_render(pagination) }}
+
+
+		</div>
+</div>
+
+{% endblock %}
+
+{# ------------------------------footer----------------------------------- #}
+
+{% block footer %}
+	{{ parent() }}
+{% endblock %}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>{% block title %}Usando Bootstrap{% endblock %}</title>
+
+        {% block stylesheets %}
+          <link href="{{ asset('bundles/miweb/css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
+          {# es necesario que bootstrap.css se coloque primero y luego bootstrap-responsive.css #}
+          <link href="{{ asset('bundles/miweb/css/bootstrap-responsive.css') }}" type="text/css" rel="stylesheet" />
+            <style type="text/css">
+                  body {
+                        padding-top: 60px;
+                        padding-bottom: 40px;
+                      }
+                    .featurette-divider {
+                      margin: 20px 0; /* Space out the Bootstrap <hr> more */
+                    }
+                    .featurette {
+                      padding-top: 120px; /* Vertically center images part 1: add padding above and below text. */
+                      overflow: hidden; /* Vertically center images part 2: clear their floats. */
+                    }
+                    .featurette-image {
+                      margin-top: -120px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
+                    }
+
+                    /* Give some space on the sides of the floated elements so text doesn't run right into it. */
+                    .featurette-image.pull-left {
+                      margin-right: 40px;
+                    }
+                    .featurette-image.pull-right {
+                      margin-left: 40px;
+                    }
+
+                    /* Thin out the marketing headings */
+                    .featurette-heading {
+                      font-size: 50px;
+                      font-weight: 300;
+                      line-height: 1;
+                      letter-spacing: -1px;
+                    }
+            </style>
+        {% endblock %}
+
+        {% block javascripts %}
+            <script src="{{ asset('bundles/miweb/js/bootstrap.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/miweb/js/jquery.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/miweb/js/bootstrap-dropdown.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/miweb/js/bootstrap-button.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/miweb/js/bootstrap-carousel.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/miweb/js/bootstrap-alert.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/miweb/js/bootstrap-modal.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/miweb/js/bootstrap-popover.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/miweb/js/bootstrap-scrollspy.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/miweb/js/bootstrap-tab.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/miweb/js/bootstrap-tooltip.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/miweb/js/bootstrap-transition.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('bundles/miweb/js/bootstrap-typeahead.js') }}" type="text/javascript"></script>
+            
+          </script>
+
+        {% endblock %}
+
+        {% block calendario %}
+
+        {% endblock %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+
+  <body>
+
+    {# ------------------------------Menu----------------------------------- #}
+    {% block nav %}
+        
+    {% endblock %}
+
+    {# -------------------------------Slider---------------------------------- #}
+    {% block slider %}
+          
+    {% endblock %}
+
+    {# -------------------------------Span---------------------------------- #}
+    {% block span %}
+        
+    {% endblock %} 
+
+   
+        <div class="container">
+            <div class="row-fluid">
+    {# -------------------------------Sidebar---------------------------------- #}                
+                {% block sidebar %}
+                  <div class="span3">
+                    <div class="well sidebar-nav">
+                       <ul class="nav nav-list">
+                         <!--Sidebar content-->
+                         {% block item %}
+                        <!-- <li class="nav-header">MENU</li>
+                        <li class="active"><a href="{#{ path('cat_homepage')}}">Categorías</a></li>
+                        <li class><a href="{{ path('prod_homepage')}#}">Productos</a></li>    
+                          -->
+                        {% endblock %}
+
+                       </ul>  
+                        <hr>
+                       <form class="form-search" >
+                          Buscar: <input type="text" class="input-medium search-query">
+                          <br><br> 
+                          <button type="submit" class="btn">Buscar</button>
+                      </form>
+
+                    </div>
+                </div>
+                {% endblock %}
+
+    {# -----------------------------------Body--------------------------------- #}
+                {% block body %}
+                  
+                {% endblock %}
+                <!--End Body content-->
+            </div>
+        </div>
+
+     {# ------------------------------footer----------------------------------- #}
+        {% block footer %}
+
+        {% endblock %}   
+           
+    </body>
+</html>

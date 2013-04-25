@@ -1,0 +1,92 @@
+
+{% extends 'MiwebBundle::layout.html.twig' %} {# Se decomenta para que funcione el popup #}
+{# ------------------------------Menu----------------------------------- #}
+{% block nav %}
+ 	{{ parent() }}
+{% endblock %}
+{# -------------------------------Slider---------------------------------- #}
+
+{% block slider %}
+{% endblock %}
+
+{# -------------------------------Span---------------------------------- #}
+
+{% block span %}
+{% endblock %}
+
+{# -------------------------------Sidebar---------------------------------- #}
+
+{% block item %}
+	{{ parent() }}
+	<li><a href="{{ path('categoria_listar')}}">Categorías</a></li>
+        <li class="active"><a href="{{ path('producto_listar')}}">Listar productos</a></li>  
+{% endblock %}
+
+{# -----------------------------------Body--------------------------------- #}
+
+{% block body %}
+<div class="span9">
+
+		<H3>Detalles de producto</H3>
+		<p>
+		  <a href="{{ path('producto_editar', { 'id':producto.id }) }} "><button class="btn btn-primary" type="button">Editar</button></a>
+		  <a href=" {{ path('producto_nuevo')}} "><button class="btn btn-primary" type="button">Crear</button></a>
+
+				  <!-- Button to trigger modal -->
+			<!-- <a href="#myModal" role="button" class="btn" data-toggle="modal">Crear via popup</a> -->
+			<button class="btn btn-danger" type="button" data-toggle="modal" data-target="#myModal1">
+				Eliminar
+			</button>	
+			<!-- Modal  -->
+				<div id="myModal1" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				  <div class="modal-header">
+				    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				    <h3 id="myModalLabel"> Eliminar producto</h3>
+				  </div>
+				  <div class="modal-body">
+				    <p>
+				    	{#{ include('MiwebBundle:Categoria:nuevopo.html.twig') }#}
+				    	{#{ render(controller('MiwebBundle:Categoria:nuevo', { 'max': 3 })) }#}
+				    	{#{ render(controller('MiwebBundle:Categoria:nuevopopup')) }#}
+				    	¿Estas seguro de eliminar éste producto?
+				    	<a href=" {{ path('producto_eliminar', { 'id': producto.id } ) }}"><button class="btn btn-danger" type="button">Si</button></a>
+				    	<a href=" {{ path('producto_showdetalles',  { 'id': producto.id } ) }} "><button class="btn btn-primary" type="button">No</button></a>
+				    </p>
+				  </div>
+				  <!--
+				  <div class="modal-footer">
+				    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+				    <button class="btn btn-primary">Save changes</button>
+				  </div>
+				  	-->
+				</div>
+
+		</p>
+		<table class="table table-striped">
+			<thead>
+			<tr>
+				<th>#</th>
+				<th>Nombre de Producto</th>
+				<th>Precio</th>
+				<th>Descripción</th>
+				<th>Categoría</th>
+			</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>{{ producto.id }}</td>
+					<td>{{ producto.nombre }}</td>
+					<td>{{ producto.precio }}</td>
+					<td>{{ producto.descripcion }}</td>
+					<td><a href="{{ path('categoria_showdetalles', { 'id': idCategoria }) }}">{{ producto.categoria }}</a></td> 
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+{% endblock %} 
+
+{# ------------------------------footer----------------------------------- #}
+
+{% block footer %}
+{% endblock %}
