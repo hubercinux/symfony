@@ -26,32 +26,17 @@ security:
             pattern:  ^/demo/secured/login$
             security: false
 
-        categoria_nuevo:
-            pattern:    ^/categoria/nuevo
-            http_basic: 
-                realm: "Secured Demo Area"
-
-        categoria_editar:
-            pattern:    ^/categoria/editar
-            http_basic: 
-                realm: "Secured Demo Area"
-
         secured_area:
-            pattern:    ^/
-            #pattern:    ^/demo/secured/
-            #form_login:
-            #    check_path: _security_check
-            #    login_path: _demo_login
-            #logout:
-            #    path:   _demo_logout
-            #    target: _demo
-
-
-            anonymous: ~
+            pattern:    ^/demo/secured/
+            form_login:
+                check_path: _security_check
+                login_path: _demo_login
+            logout:
+                path:   _demo_logout
+                target: _demo
+            #anonymous: ~
             #http_basic:
             #    realm: "Secured Demo Area"
 
     access_control:
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
-        - { path: ^/categoria/nuevo, roles: ROLE_ADMIN }
-        - { path: ^/categoria/editar, roles: ROLE_ADMIN }

@@ -29,13 +29,14 @@
 
 		<H3>Detalles de categoria   {{ categoria.nombre }} </H3>
 		<p>
-		  <a href="{{ path('categoria_editar', { 'id': categoria.id }) }} "><button class="btn btn-primary" type="button">Editar</button></a>
+		  <a href="{{ path('categoria_editar', { 'id': categoria.id }) }} "><button class="btn btn-success" type="button">Editar</button></a>
 		  <a href=" {{ path('categoria_nuevo')}} "><button class="btn btn-primary" type="button">Crear</button></a>
-
-		   <a href="{{ path('categoria_editar', { 'id': categoria.id }) }}">
+ 			
+ 			<!--
+		   <a href="{#{ path('categoria_editar', { 'id': categoria.id }) }}">
 					<button class="btn btn-success" type="button"> Editar </button>
 				 </a>
-				 <!--
+				
 				 <a href="{#{ path('categoria_eliminar', { 'id': categoria.id }) }#}">
 					<button class="btn btn-danger" type="button"> Eliminar </button>
 				 </a> 

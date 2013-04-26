@@ -24,7 +24,7 @@ categoria_showdetalles:
     defaults: { _controller: MiwebBundle:Categoria:showdetalles }
 
 categoria_editar:
-    pattern:  /{id}/editar
+    pattern:  /editar/{id}
     defaults: { _controller: MiwebBundle:Categoria:editar }
 
 categoria_orderbyname:
