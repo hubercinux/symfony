@@ -1,0 +1,64 @@
+
+{% extends 'MiwebBundle::layout.html.twig' %}
+{# ------------------------------Menu----------------------------------- #}
+{% block nav %}
+	{{ parent() }}
+{% endblock %}
+{# -------------------------------Slider---------------------------------- #}
+
+{% block slider %}
+{% endblock %}
+
+{# -------------------------------Span---------------------------------- #}
+
+{% block span %}
+{% endblock %}
+
+{# -------------------------------Sidebar---------------------------------- #}
+
+{% block item %}
+	{{ parent() }}
+	  	<li><a href="{{ path('categoria_listar')}}">Categorías</a></li>
+        <li><a href="{{ path('producto_listar')}}">Listar Productos</a></li> 
+{% endblock %}
+
+{# -----------------------------------Body--------------------------------- #}
+
+{% block body %}
+	<div class="span9">
+			<H3>Iniciar sesión</H3>
+		<p>
+		  <a href=" {{ path('categoria_listar') }} "><button class="btn btn-danger" type="button">Cancelar</button></a>
+		</p>
+
+		<form action=" {{ path('usuario_login_check') }} " method="post" >
+			  <div class="control-group">
+			    <label class="control-label" for="inputEmail">Email</label>
+			    <div class="controls">
+			      <input type="text" id="inputEmail" placeholder="Email" name="_username">
+			    </div>
+			  </div>
+			  <div class="control-group">
+			    <label class="control-label" for="inputPassword">Password</label>
+			    <div class="controls">
+			      <input type="password" id="inputPassword" placeholder="Password" name="_password">
+			    </div>
+			  </div>
+			  <div class="control-group">
+			    <div class="controls">
+			      <!-- <label class="checkbox">
+			        <input type="checkbox"> Remember me
+			      </label>
+					-->
+			      <button type="submit" class="btn"> Entrar</button>
+			    </div>
+			  </div>
+		</form>
+	</div>
+{% endblock %}
+
+{# ------------------------------footer----------------------------------- #}
+
+{% block footer %}
+	{{ parent() }}
+{% endblock %}

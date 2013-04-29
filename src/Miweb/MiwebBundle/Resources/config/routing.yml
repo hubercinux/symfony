@@ -2,11 +2,15 @@ miweb_homepage:
     pattern:  /
     defaults: { _controller: MiwebBundle:Default:index }
 
-categoria:
+_categoria:
     resource: "@MiwebBundle/Resources/config/routing_categoria.yml"
     prefix:   /categoria
 
 
-productos:
+_productos:
     resource: "@MiwebBundle/Resources/config/routing_producto.yml"
     prefix:   /producto
+
+_login:
+    resource: "@MiwebBundle/Resources/config/login.yml"
+    prefix:   /

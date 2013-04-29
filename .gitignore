@@ -9,7 +9,8 @@ web/uploads/img_categoria/*
 web/bundles/acmedemo/*
 web/bundles/framework/*
 web/bundles/sensiodistribution/*
-
+app/Acme/*
+app/Prueba/*
 
 
 # Configuration files

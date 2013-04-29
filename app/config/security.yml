@@ -4,6 +4,7 @@ jms_security_extra:
 
 security:
     encoders:
+        Miweb\MiwebBundle\Entity\Core\Usuario: { algorithm: sha512, iterations: 10 }
         Symfony\Component\Security\Core\User\User: plaintext
 
     role_hierarchy:
@@ -11,21 +12,14 @@ security:
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
-        in_memory:
+        administradores:
             memory:
                 users:
-                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
-                    admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
-
+                    admin: { password: admin, roles: [ 'ROLE_ADMIN' ] }
+                    #user:  { password: userpass, roles: [ 'ROLE_USER' ] }
+        usuarios:
+            entity: { class: Miweb\MiwebBundle\Entity\Usuario, property: correo  }
     firewalls:
-        dev:
-            pattern:  ^/(_(profiler|wdt)|css|images|js)/
-            security: false
-
-        login:
-            pattern:  ^/demo/secured/login$
-            security: false
-
         categoria_nuevo:
             pattern:    ^/categoria/nuevo
             http_basic: 
@@ -33,10 +27,15 @@ security:
 
         categoria_editar:
             pattern:    ^/categoria/editar
-            http_basic: 
-                realm: "Secured Demo Area"
+            provider:  administradores
+            form_login:
+                login_path: usuario_login
+                check_path: usuario_login_check
+            logout:
+                path:   logout
+                target: categoria_listar
 
-        secured_area:
+        publico:
             pattern:    ^/
             #pattern:    ^/demo/secured/
             #form_login:
